@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三行换色</title>
+    <style>
+        *{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+</ul>
+<script>
+    var oList=document.getElementById("list");
+    var aLi=oList.getElementsByTagName("li");
+//    console.log(aLi.length);
+    for(var i=0;i<aLi.length;i++){
+        switch(i%3){
+            case 0:
+                aLi[i].style.background="red";
+                break;
+            case 1:
+                aLi[i].style.background="green";
+                break;
+            case 2:
+                aLi[i].style.background="yellow";
+                break;
+        }
+    }
+</script>
+</body>
+</html>

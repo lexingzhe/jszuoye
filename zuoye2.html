@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>隔行换色</title>
+    <style>
+        *{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+</ul>
+<script>
+    var olist=document.getElementById("list");
+    var oli=olist.getElementsByTagName("li");
+    var leng=oli.length;
+//    console.log(leng);
+
+    for(var i=0;i<leng;i++)
+    switch(i%2){
+        case 1:
+            oli[i].style.background="red";
+            break;
+        case 0:
+            oli[i].style.background="yellow";
+            break;
+    }
+
+</script>
+</body>
+</html>
