@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--https://www.baidu.com/s?cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&rsv_dl=fyb_n_homepage-->
+<script>
+    function  getParams(param) {
+        var url="https://www.baidu.com/s?cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&rsv_dl=fyb_n_homepage";
+//    var target=url.split("?");
+//    console.log(target);
+        var target=url.split("?")[1];
+//    console.log(target);
+        var key=target.split("&");
+        console.log(key);
+        for(var i=0;i<key.length;i++){
+
+            /*var arr=[];
+             arr+= key[i].split("=");*/
+            var newArr=key[i].split("=");
+            if(param==newArr[0]){
+                return newArr[1];
+            }
+        }
+    }
+    document.write(getParams("rsv_dl"));
+
+</script>
+</body>
+</html>

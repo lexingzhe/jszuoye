@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function randomNum(){
+        var str="1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+
+        var result="";
+        for(var i=0;i<4;i++){
+            //取[0,62)随机数
+            var num=Math.floor(62*Math.random());//[0,61]
+            result+=str[num];
+        }
+       return result;
+    }
+    document.write(randomNum());
+</script>
+</body>
+</html>

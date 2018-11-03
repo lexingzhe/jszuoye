@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li a{
+            color: black;
+            height: 30px;
+            line-height: 30px;
+           text-decoration: none;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list" style="color: blue;">
+
+        <li><a href="1.randomNumber.html">产生四位验证码</a></li>
+        <li><a href="2.getParams.html">获取地址栏里的参数</a></li>
+        <!--<li></li>
+        <li></li>
+        <li></li>-->
+    </ul>
+    <script>
+        var oList=document.getElementById("list");
+        var oLi=oList.getElementsByTagName("li");
+
+        for(var i=0;i<oLi.length;i++){
+            if(i%2==1){
+                oLi[i].style.background="#f0f0f0";
+            }
+        }
+    </script>
+</body>
+</html>
