@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p></p><p></p>
+<div id="app"><!--我是注释-->
+    <p></p>
+    <p class="aa"></p>
+    <h1 class="aa"></h1>
+    <p id="child"></p>
+
+</div>
+<h1></h1>
+<script>
+    var oApp=document.getElementById("app");
+    //获取子元素节点
+    function children(parent){
+        var childNode=parent.childNodes;//获取所有子节点
+        var arr=[];//用于接收符合要求的节点
+        for(var i=0;i<childNode.length;i++){ //判断子节点是否符合要求
+            if (childNode[i].nodeType==1){
+                arr.push(childNode[i]);
+            }
+        }
+        return arr;
+    }
+    //获取哥哥元素节点
+    function pre(ele){
+        var prev=ele.previousSibling;
+        while(prev&&prev.nodeType !=1){
+            prev=prev.previousSibling;
+        }
+        return prev;
+    }
+    //获取弟弟元素节点
+    function  nextEle(ele) {
+        var nextNode=ele.nextSibling;
+        while (nextNode&&nextNode.nodeType!=1){
+            nextNode=nextNode.nextSibling;
+        }
+        return nextNode;
+    }
+    //获取第一个子元素节点
+    function firstEle(ele) {
+        var firstChild=ele.firstChild;
+        while (firstChild&&firstChild.nodeType!=1){
+            firstChild=firstChild.nextSibling;
+        }
+        return firstChild;
+    }
+    //lastElement
+    function lastEle(ele) {
+        var lastNode=ele.lastChild;
+        while(lastNode&&lastNode.nodeType!=1){
+            lastNode=lastNode.previousSibling;
+        }
+        return lastNode;
+    }
+    //所有的哥哥元素节点
+    function prevAll(ele){
+        var prev=ele.previousSibling;
+        var arr=[];
+        if(prev==null){
+            return prev;
+        }else{
+            while (prev!=null){ //所有哥哥节点
+                if(prev.nodeType==1){
+                    arr.push(prev);
+                }
+                prev=prev.previousSibling;
+            }
+            return arr;
+        }
+    }
+    // 所有的弟弟元素节点
+    function nextAll(ele){
+        var next=ele.nextSibling;
+        var arr=[];
+        if(next==null){
+            return next
+        }else{
+            while(next!=null){
+                if(next.nodeType==1){
+                    arr.push(next);
+                }
+                next=next.nextSibling;
+            }
+        }
+        return arr;
+    }
+    //获取当前元素在父级中的下标
+    function index(ele) {
+       return dom.prevAll(ele).length;//获取所有哥哥元素的集合的长度就是他的下标
+    }
+    //获取父级中第n个元素
+    function eq(context,n){
+        var tags=context.getElementsByTagName("*");//获取所有同级元素（包括自己）,得到一个类数组
+        return tags[n-1];//通过这个类数组的下标获取目标元素
+    }
+    //通过类名获取子元素
+    function byClassName(context,className){
+        var tags=context.getElementsByTagName('*');//父级的所有子元素
+        var arr=[];
+        for(var i=0;i<tags.length;i++){
+            if(tags[i].className==className){//判断类名是否符合条件
+                arr.push(tags[i]);//如果符合条件就推到数组里
+            }
+        }
+        return arr;
+    }
+    //获取所有兄弟元素节点
+    function sibling(ele){
+        var arr3=dom.prevAll(ele).concat(dom.nextAll(ele));
+        return arr3;
+    }
+    var dom={
+        children:children,
+        pre:pre,
+        nextEle:nextEle,
+        firstEle:firstEle,
+        lastEle:lastEle,
+        prevAll:prevAll,
+        nextAll:nextAll,
+        index:index,
+        eq:eq,
+        byClassName:byClassName,
+        sibling:sibling
+    };
+    console.log(dom.sibling(oApp));
+</script>
+</body>
+</html>
