@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //获取目标时间点
+    var targeDate= new Date("2018/12/31 16:29:50    ");
+    function  daojishi() {
+        //获取当前时间
+        var now=new Date();
+        //获取目标时间和当前时间的差数，这里得到的是以毫秒为单位的
+        var delDate=targeDate-now;
+//    console.log(delDate);
+        //如果这个差数小于零说明时间已经过去了，就不用执行了
+        if(delDate<=0){
+       document.write("00:00:00");
+            clearInterval(sa);
+        }else{
+            //把这个差数换算成以小时、分、秒为单位
+            //获取小时数值
+            var hour =Math.floor(delDate/1000/60/60);
+            if (hour<10){
+                hour="0"+hour;
+            }
+            console.log(hour);
+            //获取还剩多少分
+            var minutes=Math.floor((delDate-hour*1000*60*60)/1000/60);
+            if(minutes<10){
+                minutes="0"+minutes;
+            }
+            console.log(minutes);
+            //获取还剩多少秒
+            var s=Math.floor((delDate-hour*3600000-minutes*60000)/1000);
+            if (s<10){
+                s="0"+s;
+            }
+//        console.log(hour+":"+minutes+":"+s);
+            var as=hour+":"+minutes+":"+s;
+            document.body.innerHTML=(as);
+        }
+    }
+//    daojishi();
+    var sa=setInterval(daojishi,1000);
+    /*function setTime() {
+        var newTime = new Date();
+        var delTime = targetTime - newTime; //获取到的是毫秒
+        if(delTime <= 0) {
+            clearInterval(firstInter);
+            document.body.innerHTML = "00:00:00";
+            return;
+        }
+        var hour = delTime/(1000*60*60);
+        delTime -= Math.floor(hour)*1000*60*60;
+        var minuts = delTime/1000/60;
+        delTime -=  Math.floor(minuts)*1000*60;
+        var seconds = Math.floor(delTime/1000);
+        //var hourDel = delTime - hour*1000*60*60;
+        document.body.innerHTML = (Math.floor(hour)+":"+Math.floor(minuts)+":"+ seconds);
+    }
+    setTime();
+    var firstInter = setInterval(setTime, 1000)
+*/
+</script>
+</body>
+</html>
