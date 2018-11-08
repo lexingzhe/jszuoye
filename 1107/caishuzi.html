@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    div{
+        width: 180px;
+        height: 200px;
+        margin: 0 auto;
+    }
+</style>
+<body>
+<div><input type="text" id="text" value="">&nbsp;猜数字（0~10）
+    <div id="tishi"></div>
+</div>
+<script>
+//    产生一个0-10的随机数作为目标数字
+    var num=Math.ceil(10*Math.random());
+//        var num=10;
+//    alert(num);
+    var oText=document.getElementById("text");
+    var oTishi=document.getElementById("tishi");
+//            var times=5;
+            oText.onchange=function () {
+//                for(var i=0;i<5;i++){
+//                    var times=4-i;
+//                console.log(i);
+                if (oText.value>num){
+//                    oTishi.innerHTML=("大了，您还有"+times+"次机会");
+                    oTishi.innerHTML=("大了");
+
+                }else if(oText.value<num){
+                    alert("小了");
+                }else {
+                    alert("恭喜你猜对啦！！");
+                }
+            }
+        /*}else{
+            alert("哈哈，您输啦")
+    }*/
+
+</script>
+</body>
+</html>

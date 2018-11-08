@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #app{
+            width: 303px;
+            margin: 0 auto;
+        }
+        ul,li{
+            list-style: none;
+        }
+        li{
+            background: red;
+            float: left;
+            width:100px;
+            height: 50px;
+        }
+        #app div{
+            /*background: yellow;*/
+            width:100%;
+            height: 100%;
+            display: none;
+        }
+        #app .active{
+            background: yellow;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <div class="active">1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+<script>
+var oApp=document.getElementById("app");
+var oLi=oApp.getElementsByTagName("li");
+var oDiv=oApp.getElementsByTagName("div");
+/*for(var j=0;j<oLi.length;j++){
+    oLi[j].index=j;
+    oLi[j].onclick=function(){
+        for(var i=0;i<oLi.length;i++){
+            oLi[i].className='';
+            oDiv[i].className='';
+        }
+        console.log(this.index);
+        oLi[this.index].className='active';
+        oDiv[this.index].className='active';
+    }
+}*/
+/*for(var j=0;j<oLi.length;j++){
+    oLi[j].index=j;
+    oLi[j].onclick=function(){
+        change(this.index);
+    }
+//         console.log(this.index);
+}
+function change(index) {
+    for(var i=0;i<oLi.length;i++){
+        oLi[i].className='';
+        oDiv[i].className='';
+    }
+    oLi[index].className='active';
+    oDiv[index].className='active';
+}*/
+for(var j=0;j<oLi.length;j++){
+    oLi[j].index=j;
+    oLi[j].onclick=function () {
+        for(var i=0;i<oLi.length;i++){
+            oLi[i].className="";
+            oDiv[i].className='';
+        }
+        this.className="active";
+        oDiv[this.index].className='active';
+    }
+}
+//添加事件
+/*    oLi[0].onclick=function(){
+ for(var i=0;i<oLi.length;i++){
+ oLi[i].className='';
+ oDiv[i].className='';
+ }
+ this.className='active';
+ oDiv[0].className='active';
+ }
+ oLi[1].onclick=function(){
+ for(var i=0;i<oLi.length;i++){
+ oLi[i].className='';
+ oDiv[i].className='';
+ }
+ this.className='active';
+ oDiv[1].className='active';
+ }
+ oLi[2].onclick=function(){
+ for(var i=0;i<oLi.length;i++){
+ oLi[i].className='';
+ oDiv[i].className='';
+ }
+ this.className='active';
+ oDiv[2].className='active';
+ }*/
+</script>
+</body>
+</html>

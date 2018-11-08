@@ -7,7 +7,7 @@
 <body>
 <script>
     //获取目标时间点
-    var targeDate= new Date("2018/12/31 16:29:50    ");
+    var targeDate= new Date("2018/12/19 14:28:50    ");
     function  daojishi() {
         //获取当前时间
         var now=new Date();
@@ -20,25 +20,29 @@
             clearInterval(sa);
         }else{
             //把这个差数换算成以小时、分、秒为单位
-            //获取小时数值
-            var hour =Math.floor(delDate/1000/60/60);
+            //获取天数
+            var days=Math.floor(delDate/1000/60/60/24);
+            if (days<10){
+                days="0"+days;
+            }
+            var hour =Math.floor((delDate-days*1000*60*60*24)/1000/60/60);
             if (hour<10){
                 hour="0"+hour;
             }
             console.log(hour);
             //获取还剩多少分
-            var minutes=Math.floor((delDate-hour*1000*60*60)/1000/60);
+            var minutes=Math.floor((delDate-days*1000*60*60*24-hour*1000*60*60)/1000/60);
             if(minutes<10){
                 minutes="0"+minutes;
             }
             console.log(minutes);
             //获取还剩多少秒
-            var s=Math.floor((delDate-hour*3600000-minutes*60000)/1000);
+            var s=Math.floor((delDate-days*1000*60*60*24-hour*3600000-minutes*60000)/1000);
             if (s<10){
                 s="0"+s;
             }
 //        console.log(hour+":"+minutes+":"+s);
-            var as=hour+":"+minutes+":"+s;
+            var as="还有"+days+"天"+hour+"小时"+minutes+"分"+s+"秒";
             document.body.innerHTML=(as);
         }
     }

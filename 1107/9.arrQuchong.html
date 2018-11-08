@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr=[1,2,3,1,2,2,5,];
+    var obj={};
+    //循环数组的每一项，判断对象中有没有这一项的属性，如果有就把数组中的这一项删除，如果没有就把这一项写到对象中,因为删除后新数组的下标对应的元素会发生变化，所以会遇到数组塌陷比如第一次删除后数组会变成[1,2,3,2,2,5],这时候i变成了4，而新数组需要从下标为3的地方开始检测所以删除完后i--
+    /*for(var i=0;i<arr.length;i++){
+        if(obj[arr[i]]){
+            arr.splice(i,1);//遇到数组塌陷
+            i--;
+        }else{
+            obj[arr[i]]=true;//等于给对象object增加了一个arr[i]属性
+        }
+    }*/
+    for(var i=0;i<arr.length;i++){
+        if (obj[arr[i]]==undefined){
+            obj[arr[i]]=true;
+        }else{
+            arr.splice(i,1);
+            i--;
+        }
+    }
+   /* console.log(obj);
+    var arr2=[];
+    for (var key in obj){
+        arr2.push(key)
+    }*/
+    console.log(arr);
+</script>
+</body>
+</html>

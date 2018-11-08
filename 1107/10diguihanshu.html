@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    * 递归函数
+    *   第一点：函数自己调用自己
+    *   第二点：需要一个条件终止
+    *   注意：递归函数很容易造成死循环导致电脑或者浏览器卡死
+    * */
+    //求0-5的和
+    var result=0;
+    function add(num){
+        if(num<0){
+            return 0;
+        }else{
+            return num+add(--num);
+        }
+    }
+    console.log(add(5));
+</script>
+</body>
+</html>
