@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #app{
+            width: 300px;
+            margin: 0 auto;
+            height: 100px;
+            border:1px solid black;
+        }
+        ul,li{
+            list-style: none;
+        }
+        li{
+            background: red;
+            float: left;
+            width:100px;
+            height: 50px;
+        }
+        #app div{
+            width:100%;
+            height: 100%;
+            display: none;
+        }
+        #app .active{
+            background: white;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <div class="active">1<div></div></div>
+    <div>2</div>
+    <div>3</div>
+</div>
+<script>
+    var oApp=document.getElementById("app");
+    var oUl=oApp.getElementsByTagName("ul")[0];
+    var aLi=oUl.getElementsByTagName("li");
+//    var aDiv=oApp.getElementsByTagName("div");
+    var childDiv=[];
+    function getChildDiv(parent) {
+        var childNodes=oApp.childNodes;
+        for(var i=0;i<childNodes.length;i++){
+            if(childNodes[i].nodeName=="DIV"){
+                childDiv.push(childNodes[i]);
+            }
+        }
+
+    }
+    getChildDiv(oApp);
+    console.log(childDiv);
+    for(var j=0;j<aLi.length;j++) {
+        aLi[j].onclick =(function (j) {
+            return function () {
+                for(var i=0;i<aLi.length;i++){
+                    aLi[i].className="";
+                    childDiv[i].className='';
+                }
+                aLi[j].className="active";
+                childDiv[j].className='active';
+            }
+        })(j)
+    }
+</script>
+</body>
+</html>
