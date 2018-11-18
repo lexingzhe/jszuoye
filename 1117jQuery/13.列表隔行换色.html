@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            $('#btn').click(function () {
+                    $("#uu>li:odd").css("background-color","red");
+                    $("#uu>li:even").css("background-color","yellow");
+                }
+            )
+        })
+    </script>
+    <style>
+        ul{
+            list-style: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="隔行换色" id="btn">
+<ul id="uu">
+    <li>樱木花道</li>
+    <li>漩涡鸣人</li>
+    <li>上杉达也</li>
+    <li>赤木晴子</li>
+    <li>浅仓南</li>
+</ul>
+</body>
+</html>

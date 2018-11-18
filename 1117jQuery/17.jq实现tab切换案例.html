@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #app,#app2{
+            width: 303px;
+            height: 100px;
+            margin: 0 auto;
+            border:1px solid black;
+        }
+        ul,li{
+            list-style: none;
+        }
+        li{
+            background: red;
+            float: left;
+            width:100px;
+            height: 50px;
+        }
+        #app div,#app2 div{
+            width:100%;
+            height: 100%;
+            display: none;
+        }
+        #app .active,#app2 .active{
+            display: block;
+        }
+      /*  #app ul .active,#app2 ul .active{
+            background: white;
+        }*/
+    </style>
+    <script src ="./js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#app>ul>li:eq(0)").css("background-color","white")
+            $("#app>ul>li").mouseenter(function () {
+                $("#app>ul>li").css("background-color","red");
+                $(this).css("background-color","white");
+                var index=$(this).index();
+                $("#app>div").hide();
+                $("#app>div:eq("+index+")").show();
+            });
+            /*$("#app>ul>li").mouseleave(function () {
+                $(this).css("background-color","red");
+            })*/
+            $("#app2>ul>li:eq(0)").css("background-color","white")
+            $("#app2>ul>li").mouseenter(function () {
+                $("#app2>ul>li").css("background-color","red");
+                $(this).css("background-color","white");
+                var index=$(this).index();
+                $("#app2>div").hide();
+                $("#app2>div:eq("+index+")").show();
+            });
+        })
+    </script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <div class="active">1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+<div id="app2">
+    <ul>
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <div class="active">1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+</body>
+</html>

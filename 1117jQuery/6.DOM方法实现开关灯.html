@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .cls{
+            background: black;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="关灯" id="btn">
+<script>
+    document.getElementById('btn').onclick = function () {
+        var oBody=document.body;
+        if(!oBody.className){
+            oBody.className="cls";
+            this.value="开灯";
+        }else{
+            oBody.className='';
+            this.value="关灯";
+        }
+    }
+    /*if(oBody.className == 'cls'){
+     oBody.className = '';
+     this.value = "关灯";
+     }else {
+     oBody.className = "cls";
+     this.value = "开灯";
+     }*/
+</script>
+</body>
+</html>

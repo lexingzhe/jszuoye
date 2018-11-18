@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #dv{
+            width: 302px;
+            /*height: 122px;*/
+            margin: 0 auto;
+            border:1px solid orangered;
+            overflow: hidden;
+        }
+        #left,#right{
+            width:80px;
+            /*height:120px;*/
+
+        }
+        #left li,#right li{
+            width:80px;
+            height: 30px;
+            border-bottom:1px solid orangered;
+            text-align: center;
+            line-height: 30px;
+        }
+        #left li a,#right li a{
+            display: inline-block;
+            width:80px;
+            height: 30px;
+        }
+        #dv .last{
+            border-bottom: none;
+        }
+        #center{
+            width: 140px;
+            height: 185px;
+            border-left:1px solid orangered;
+            border-right:1px solid orangered;
+        }
+        #center li{
+            display: none;
+        }
+        #center img{
+            width: 140px;
+            height: 185px;
+        }
+        #center .first{
+            display: inline;
+        }
+        #left,#right,#center{
+            float: left;
+        }
+    </style>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#left>li").mouseenter(function () {
+                var index=$(this).index();
+                $(this).css("background","red");
+                $("#center>li").hide();
+                $("#center>li:eq("+index+")").show();
+            });
+            $("#left>li").mouseleave(function () {
+                $(this).css("background","")
+            });
+            $("#right>li").mouseenter(function () {
+                var index=$(this).index()+6;
+                $(this).css("background","red");
+                $("#center>li").hide();
+                $("#center>li:eq("+index+")").show();
+            });
+            $("#right>li").mouseleave(function () {
+                $(this).css("background","")
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="dv">
+        <ul id="left">
+            <li><a href="">女鞋</a></li>
+            <li><a href="">男鞋</a></li>
+            <li><a href="">女包</a></li>
+            <li><a href="">女鞋</a></li>
+            <li><a href="">男鞋</a></li>
+            <li class="last"><a href="">女包</a></li>
+        </ul>
+        <ul id="center">
+            <li class="first"><img src="./img/01.jpg" alt=""></li>
+            <li><img src="./img/02.jpg" alt=""></li>
+            <li><img src="./img/03.jpg" alt=""></li>
+            <li><img src="./img/01.jpg" alt=""></li>
+            <li><img src="./img/02.jpg" alt=""></li>
+            <li><img src="./img/03.jpg" alt=""></li>
+            <li><img src="./img/03.jpg" alt=""></li>
+            <li><img src="./img/02.jpg" alt=""></li>
+            <li><img src="./img/01.jpg" alt=""></li>
+            <li><img src="./img/03.jpg" alt=""></li>
+            <li><img src="./img/02.jpg" alt=""></li>
+            <li><img src="./img/01.jpg" alt=""></li>
+        </ul>
+        <ul id="right">
+            <li><a href="">女包</a></li>
+            <li><a href="">男鞋</a></li>
+            <li><a href="">女鞋</a></li>
+            <li><a href="">女包</a></li>
+            <li><a href="">男鞋</a></li>
+            <li class="last"><a href="">女鞋</a></li>
+        </ul>
+    </div>
+</body>
+</html>

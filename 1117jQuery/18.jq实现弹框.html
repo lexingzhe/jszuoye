@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src ="./js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            var isShow=false;
+            $("#btn").click(function () {
+
+                if(!isShow){
+                    var oDiv=$("<div id='oDiv'></div>");
+                    $("body").append(oDiv);
+                    $(oDiv).html("<div class='close'>x</div>");
+                    $(oDiv).css({"width":"100px","height":"100px","background-color":"#ccc","border-radius":"5px"});
+                    isShow=true;
+                }else {
+                    $("#oDiv").show();
+                }
+                $(".close").click(function () {
+                    $(oDiv).hide();
+                })
+            });
+
+        })
+    </script>
+</head>
+<body>
+<button id="btn">点我</button>
+
+</body>
+</html>
