@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var borwser = {
+        versions:function(){
+            var u = navigator.userAgent;
+            return {
+                trident:u.indexOf('Trident')>-1,//IE内核
+                webKit:u.indexOf('AppleWebKit')>-1,//苹果、谷歌内核
+                Firefox:u.indexOf('Firefox')>-1,//火狐浏览器
+                Opera:u.indexOf('Opera')>-1,//欧朋
+                //jr360:u.indexOf('compatible')>-1,//360兼容
+//                js360:u.indexOf('')
+                mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                android:u.indexOf("Android")>-1,//安卓
+                iphone:u.indexOf('iPhone')>-1,//iPhone
+                ipad: u.indexOf('iPad')>-1//iPad
+            }
+        }()
+    }
+//    alert(borwser.versions.webKit);
+    if(!borwser.versions.mobile){//如果不是移动端
+        if(borwser.versions.trident){
+            alert('IE');
+        }else if(borwser.versions.webKit){
+            alert('谷歌');
+        }else if(borwser.versions.Firefox){
+            alert("火狐");
+        }else if(borwser.versions.Opera){
+            alert('Opera');
+        }else{
+            alert('其他浏览器');
+        }
+    }else {//否则就是移动端
+        if(borwser.versions.iphone){
+            alert('iphone');
+        }else if(borwser.versions.android){
+            alert('安卓');
+        }else if(borwser.versions.ipad){
+            alert('ipad');
+        }
+    }
+
+</script>
+</body>
+</html>
